@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>M Gradient</title>
+  <meta name="theme-color" content="#26282c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="hero" id="top">
+    <div class="stage" id="stage">
+      <canvas id="cv"></canvas>
+      <div class="grain" id="grain"></div>
+    </div>
+    <header class="topbar">
+      <h1 class="brand"><span class="mark" aria-hidden="true"></span>M Gradient</h1>
+      <nav class="tabs" aria-label="Main">
+        <a href="#top" data-ic="sparkle">Create</a>
+        <a href="#gallery" data-ic="grid">Gallery</a>
+      </nav>
+      <button type="button" id="theme" class="themebtn"></button>
+    </header>
+    <div class="toast" id="toast" role="status"></div>
+
+    <section class="panel" aria-label="Gradient controls">
+      <div class="row">
+        <div class="swatches" id="swatches" role="group" aria-label="Colour points"></div>
+        <button class="icon" id="add" title="Add a colour point" aria-label="Add a colour point"
+          data-ic="plus"></button>
+        <button class="icon" id="del" title="Remove selected point" aria-label="Remove selected point"
+          data-ic="minus"></button>
+      </div>
+      <div class="row">
+        <div class="color"><input type="color" id="picker" aria-label="Edit selected colour"><span id="hex"></span>
+        </div>
+        <span style="font-size:14px;color:var(--ink)">Drag the dots on the gradient to move them.</span>
+      </div>
+      <div class="sliders">
+        <label>Softness<input type="range" id="soft" min="0" max="100" value="60"></label>
+        <label>Grain<input type="range" id="grainR" min="0" max="100" value="25"></label>
+      </div>
+      <div class="row">
+        <button class="btn soft" id="shuffle" data-ic="shuffle">Shuffle</button>
+        <button class="btn main" id="export" data-ic="out">Export</button>
+      </div>
+    </section>
+  </main>
+
+  <section class="gallery" id="gallery" aria-labelledby="gt">
+    <div class="gwrap">
+      <div class="ghead">
+        <h2 id="gt">Ready-made gradients</h2>
+        <p class="sub">Not in the mood to design? Download one as an image, or open it in the editor and make it your
+          own.</p>
+      </div>
+      <div class="grid" id="grid"></div>
+      <nav class="pager" id="pager" aria-label="Gallery pages"></nav>
+      <p class="count" id="count" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-top">
+      <div>
+        <div class="brand"><span class="mark" aria-hidden="true"></span>M Gradient</div>
+        <p>Create smooth mesh gradients or download a ready-made one.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="#top" data-ic="sparkle">Create</a>
+        <a href="#gallery" data-ic="grid">Gallery</a>
+        <a href="#top" data-ic="up">Back to top</a>
+      </nav>
+    </div>
+    <small>© 2026 M Gradient. Everything runs in your browser, so nothing you make is uploaded.</small>
+  </footer>
+
+  <dialog id="dlg">
+    <h2>Your gradient</h2>
+    <p>Save the image, or copy the CSS to use it on a website.</p>
+    <img id="out" alt="Rendered mesh gradient">
+    <pre id="css"></pre>
+    <div class="row">
+      <button class="btn soft" id="copy" data-ic="copy">Copy CSS</button>
+      <button class="btn main" id="dl" data-ic="dl">Download PNG</button>
+      <button class="btn soft" id="close" data-ic="x">Close</button>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+
+</html>
